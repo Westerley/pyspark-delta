@@ -1,0 +1,11 @@
+services:
+  webapp:
+    container_name: pyspark_notebook
+    build: .
+    command: start.sh jupyter lab --LabApp.token=''
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/home/jovyan/work/
+    environment:
+      PYARROW_IGNORE_TIMEZONE: 1
